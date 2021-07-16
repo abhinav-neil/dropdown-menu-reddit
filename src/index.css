@@ -73,19 +73,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation-duration: 500ms;
-  animation-iteration-count: 2;
- }
+  transition: filter; }
 
-.icon-button:not(#dropdown):hover {
-  animation-name: spin;
+.icon-button:hover {
+  filter: brightness(1.5);
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .icon-button svg { 
   fill: var(--icon-color);
@@ -132,11 +125,6 @@ a {
   margin-right: 0.5rem;
 }
 
-
-.menu-item .icon-button:hover {
-  /* filter: none; */
-}
-
 .menu-item:hover {
   filter: brightness(1.5);
   /* background-color: var(--bg); */
@@ -177,4 +165,61 @@ a {
 .menu-secondary-exit-active {
   transform: translateX(110%);
   transition: all var(--speed) ease;
+}
+
+/* Slider */
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 10px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+ }
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(83, 79, 79);
+  border-radius: 20px;
+  border-color: var(--bg);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 80%;
+  width: 30%;
+  left: 5%;
+  bottom: 10%;
+  background-color: var(--bg);
+  border-radius: 20px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #12802a;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #28a543;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  transform: translateX(200%);
 }

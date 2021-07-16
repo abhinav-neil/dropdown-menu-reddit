@@ -9,6 +9,8 @@ import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 import { ReactComponent as RedditIcon } from './icons/reddit.svg';
 import { ReactComponent as HomeIcon } from './icons/home.svg';
+import { ReactComponent as CommentIcon } from './icons/comment-dots.svg';
+// import { ReactComponent as ToggleIcon } from './icons/toggle-switch.html';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
@@ -16,13 +18,11 @@ import { CSSTransition } from 'react-transition-group';
 function App() {
   return (
     <Navbar>
-      <NavItem icon={<PlusIcon />} />
-      <NavItem icon={<RedditIcon />}>
-        <ErrorMessage></ErrorMessage>
-      </NavItem>
-
+      <NavItem icon={<RedditIcon />}/>
       <NavItem icon={<HomeIcon />} />
-
+      <NavItem icon={<CommentIcon />} />
+      <NavItem icon={<BellIcon />} />
+      <NavItem icon={<PlusIcon />} />
       <NavItem id={'dropdown'} icon={<CaretIcon />}>
         <DropdownMenu></DropdownMenu>
       </NavItem>
@@ -50,12 +50,6 @@ function NavItem(props) {
       {open && props.children}
     </li>
   );
-}
-
-function ErrorMessage(props){
-  return(
-    <button>Oops!</button>
-  )
 }
 
 function DropdownMenu() {
@@ -92,19 +86,29 @@ function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItem>My Profile</DropdownItem>
+          <DropdownItem
+            rightIcon={
+              <div>
+                <label className="switch">
+                  <input type="checkbox"/>
+                  <span className="slider"></span>
+                </label>
+              </div>
+            }>               
+            Online Status</DropdownItem>
+          <DropdownItem>Profile</DropdownItem>
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
             goToMenu="settings">
-            Settings
+            User Settings
           </DropdownItem>
-          <DropdownItem
+          {/* <DropdownItem
             leftIcon="🦧"
             rightIcon={<ChevronIcon />}
             goToMenu="animals">
             Animals
-          </DropdownItem>
+          </DropdownItem> */}
 
         </div>
       </CSSTransition>
