@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background: #236e6e;
-  font-family: monospace;
+  font-family: Monaco, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -73,9 +73,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: filter; }
+}
 
-.icon-button:hover {
+.icon-nav{
+  transition: filter;
+}
+
+.icon-nav:hover {
   filter: brightness(1.5);
 }
 
@@ -101,6 +105,7 @@ a {
   overflow: hidden;
   transition: height var(--speed) ease;
 }
+
 
 .menu {
   width: 100%;

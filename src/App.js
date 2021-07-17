@@ -1,16 +1,16 @@
 import './index.css';
 import { ReactComponent as BellIcon } from './icons/bell.svg';
-import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
 import { ReactComponent as PlusIcon } from './icons/plus.svg';
 import { ReactComponent as CogIcon } from './icons/cog.svg';
-import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
-import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 import { ReactComponent as RedditIcon } from './icons/reddit.svg';
 import { ReactComponent as HomeIcon } from './icons/home.svg';
 import { ReactComponent as CommentIcon } from './icons/comment-dots.svg';
-// import { ReactComponent as ToggleIcon } from './icons/toggle-switch.html';
+import { ReactComponent as ProfileIcon } from './icons/profile.svg';
+import { ReactComponent as DotIcon } from './icons/dot.svg';
+import { ReactComponent as ChevronRightIcon } from './icons/chevron-right.svg';
+import { ReactComponent as ChevronLeftIcon } from './icons/chevron-left.svg';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
@@ -43,7 +43,7 @@ function NavItem(props) {
 
   return (
     <li className="nav-item">
-      <a href="#" className="icon-button" id={props.id} onClick={() => setOpen(!open)}>
+      <a href="#" className="icon-button icon-nav" id={props.id} onClick={() => setOpen(!open)}>
         {props.icon}
       </a>
 
@@ -69,9 +69,9 @@ function DropdownMenu() {
   function DropdownItem(props) {
     return (
       <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-        <span className="icon-button">{props.leftIcon}</span>
+        <span className="icon-button icon-left">{props.leftIcon}</span>
         {props.children}
-        <span className="icon-right">{props.rightIcon}</span>
+        <span className="icon-button icon-right">{props.rightIcon}</span>
       </a>
     );
   }
@@ -87,6 +87,7 @@ function DropdownMenu() {
         onEnter={calcHeight}>
         <div className="menu">
           <DropdownItem
+            leftIcon={<DotIcon/>}
             rightIcon={
               <div>
                 <label className="switch">
@@ -96,16 +97,19 @@ function DropdownMenu() {
               </div>
             }>               
             Online Status</DropdownItem>
-          <DropdownItem>Profile</DropdownItem>
+          <DropdownItem
+            leftIcon={<ProfileIcon />}>
+            Profile
+          </DropdownItem>
           <DropdownItem
             leftIcon={<CogIcon />}
-            rightIcon={<ChevronIcon />}
+            rightIcon={<ChevronRightIcon />}
             goToMenu="settings">
             User Settings
           </DropdownItem>
           {/* <DropdownItem
             leftIcon="🦧"
-            rightIcon={<ChevronIcon />}
+            rightIcon={<ChevronRightIcon />}
             goToMenu="animals">
             Animals
           </DropdownItem> */}
@@ -120,7 +124,7 @@ function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+          <DropdownItem goToMenu="main" leftIcon={<ChevronLeftIcon />}>
             <h2>My Tutorial</h2>
           </DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>HTML</DropdownItem>
@@ -137,7 +141,7 @@ function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+          <DropdownItem goToMenu="main" leftIcon={<CogIcon />}>
             <h2>Animals</h2>
           </DropdownItem>
           <DropdownItem leftIcon="🦘">Kangaroo</DropdownItem>
