@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #236e6e;
+  background: #f9fafa;
   font-family: Monaco, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,7 +14,7 @@ code {
 
 :root {
   --bg:  #dae0e6;
-  --bg-alt: #484a4d;
+  --bg-alt: #4d4c48;
   --text-color: #101011;
   --text-color-alt: #dae0e6;
   --icon-color: #f1e5e5;
@@ -76,6 +76,7 @@ a {
 }
 
 .icon-nav{
+  background-color: rgb(219, 103, 8);
   transition: filter;
 }
 

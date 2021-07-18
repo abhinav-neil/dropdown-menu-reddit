@@ -3,7 +3,6 @@ import { ReactComponent as BellIcon } from './icons/bell.svg';
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
 import { ReactComponent as PlusIcon } from './icons/plus.svg';
 import { ReactComponent as CogIcon } from './icons/cog.svg';
-import { ReactComponent as BoltIcon } from './icons/bolt.svg';
 import { ReactComponent as RedditIcon } from './icons/reddit.svg';
 import { ReactComponent as HomeIcon } from './icons/home.svg';
 import { ReactComponent as CommentIcon } from './icons/comment-dots.svg';
@@ -43,7 +42,7 @@ function NavItem(props) {
 
   return (
     <li className="nav-item">
-      <a href="#" className="icon-button icon-nav" id={props.id} onClick={() => setOpen(!open)}>
+      <a href="/#" className="icon-button icon-nav" id={props.id} onClick={() => setOpen(!open)}>
         {props.icon}
       </a>
 
@@ -68,7 +67,7 @@ function DropdownMenu() {
 
   function DropdownItem(props) {
     return (
-      <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+      <a href="/#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
         <span className="icon-button icon-left">{props.leftIcon}</span>
         {props.children}
         <span className="icon-button icon-right">{props.rightIcon}</span>
@@ -124,32 +123,14 @@ function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ChevronLeftIcon />}>
-            <h2>My Tutorial</h2>
-          </DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>HTML</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>CSS</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>JavaScript</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>Awesome!</DropdownItem>
+          <DropdownItem goToMenu="main" leftIcon={<ChevronLeftIcon />}>Main Menu</DropdownItem>
+          <DropdownItem leftIcon={<CogIcon />}>Account</DropdownItem>
+          <DropdownItem leftIcon={<CogIcon />}>Feed</DropdownItem>
+          <DropdownItem leftIcon={<CogIcon />}>Notifications</DropdownItem>
+          <DropdownItem leftIcon={<CogIcon />}>Safety & Privacy</DropdownItem>
         </div>
       </CSSTransition>
 
-      <CSSTransition
-        in={activeMenu === 'animals'}
-        timeout={500}
-        classNames="menu-secondary"
-        unmountOnExit
-        onEnter={calcHeight}>
-        <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<CogIcon />}>
-            <h2>Animals</h2>
-          </DropdownItem>
-          <DropdownItem leftIcon="🦘">Kangaroo</DropdownItem>
-          <DropdownItem leftIcon="🐸">Frog</DropdownItem>
-          <DropdownItem leftIcon="🦋">Horse?</DropdownItem>
-          <DropdownItem leftIcon="🦔">Hedgehog</DropdownItem>
-        </div>
-      </CSSTransition>
     </div>
   );
 }
