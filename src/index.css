@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  background: #f9fafa;
+  /* background: #f9fafa; */
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)) fixed;
   font-family: Monaco, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -78,6 +79,7 @@ a {
 .icon-nav{
   background-color: rgb(219, 103, 8);
   transition: filter;
+  box-shadow: 1px 1px 4px black;
 }
 
 .icon-nav:hover {
